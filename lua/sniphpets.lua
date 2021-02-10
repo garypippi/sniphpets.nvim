@@ -90,7 +90,24 @@ local get_function = function (type)
     }
 end
 
-return {
-    get_property = get_property,
-    get_function = get_function
-}
+if not _MOCK then
+    return {
+        get_property = get_property,
+        get_function = get_function
+    }
+else
+    return {
+        get_type = get_type,
+        del_type = del_type,
+        set_null = set_null,
+        get_var = get_var,
+        get_args = get_args,
+        get_fnc = get_fnc,
+        doc_get_var = doc_get_var,
+        doc_get_param = doc_get_param,
+        doc_get_params = doc_get_params,
+        doc_get_return = doc_get_return,
+        php_get_var = php_get_var,
+        php_get_args = php_get_args
+    }
+end
